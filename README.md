@@ -30,28 +30,7 @@ The Employee Management System is a Python application designed for managing emp
 - **Pymysql**: Connects Python with MySQL for database operations.
 - **SQL**: Manages and queries the employee database.
 
-## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/RAJDEEP21SINGH/employee-management-system.git
-Navigate to the project directory:
-
-bash
-Copy code
-cd employee-management-system
-Install required Python packages:
-
-bash
-Copy code
-pip install -r requirements.txt
-Set up the MySQL database using provided SQL scripts.
-
-Run the application:
-
-bash
-Copy code
-python main.py
 Usage
 Login: Enter your credentials to access the system.
 Manage Employees: Use the main interface to perform CRUD operations and search for employees.
