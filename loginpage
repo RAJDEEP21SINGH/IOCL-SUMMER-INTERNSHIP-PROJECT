@@ -1,0 +1,45 @@
+from customtkinter import *
+from PIL import Image, ImageTk
+from tkinter import messagebox
+
+def Login():
+    if username_entry.get() == "" or password_entry.get() == "":
+        messagebox.showerror(title="Error", message="All fields are required")
+    elif username_entry.get() == "Manager" and password_entry.get() == "manager1234":
+        messagebox.showinfo(title="Success", message='Login successful')
+        root.destroy()
+        import ems
+    else:
+        messagebox.showerror('Error', 'Invalid user')
+
+root = CTk()
+root.geometry('1000x700+200+80')
+root.resizable(0, 0)  # disables the maximizing button
+
+image = Image.open(r"C:\Users\hp\OneDrive\Desktop\benefits-of-ess-portal.webp")
+resize = image.resize((1280, 875))
+photo = ImageTk.PhotoImage(resize)
+
+# Place the image first
+image_label = CTkLabel(root, image=photo, text='')
+image_label.place(x=0, y=0)
+
+# Create and place the frame on top of the image
+frame = CTkFrame(root, fg_color='#37aace',bg_color='#37aace',border_color='white',border_width=2,width=450)
+frame.place(x=30,y=20)
+# frame.grid(columnspan=3)
+
+
+
+heading_label = CTkLabel(frame, text='Employee Management System', font=('Goudy Old Style', 32, 'bold'), text_color="white")
+heading_label.grid(row=0,pady=15,padx=25,column=1)
+
+username_entry = CTkEntry(frame, placeholder_text='Enter your Username', placeholder_text_color='white', width=310, fg_color='#3493bc', text_color='white', height=35, border_color='white')
+username_entry.grid(row=1,column=1,pady=7)
+password_entry = CTkEntry(frame, placeholder_text='Enter your Password', placeholder_text_color='white', width=310, show="*", fg_color='#3493bc', text_color='white', height=35, border_color='white')
+password_entry.grid(row=2,pady=7,column=1)
+
+login_button = CTkButton(frame, text='Login', cursor="hand2", command=Login, border_spacing=10, hover_color='#41abcc',border_width=2,border_color='white')
+login_button.grid(row=3,pady=10,column=1)
+
+root.mainloop()
